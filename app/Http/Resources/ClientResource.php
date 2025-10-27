@@ -25,6 +25,7 @@ class ClientResource extends JsonResource
             'phone' => $this->phone,
             'birth_date' => $this->birth_date,
             'birth_date_friendly' => $this->birth_date?->isoFormat('D MMMM YYYY'),
+            'birth_date_formatted' => $this->birth_date?->format('Y-m-d'),
             'gender' => $this->gender,
             'address' => $this->address,
             'postal_code' => $this->postal_code,

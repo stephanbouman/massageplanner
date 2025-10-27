@@ -22,7 +22,7 @@ const form = useForm({
   last_name: props.client.data.last_name,
   email: props.client.data.email,
   phone: props.client.data.phone,
-  birth_date: props.client.data.birth_date,
+  birth_date: props.client.data.birth_date_formatted,
   gender: props.client.data.gender,
   address: props.client.data.address,
   postal_code: props.client.data.postal_code,
@@ -52,7 +52,6 @@ const form = useForm({
         </div>
       </div>
     </template>
-
     <div class="py-12">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <FormWrapper :form="form" class="max-w-3xl mx-auto" @submit.prevent="submit">
