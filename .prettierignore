@@ -1,0 +1,16 @@
+/public
+/node_modules
+/vendor
+/storage
+/bootstrap
+/app
+/.caches
+/.github
+composer.json
+composer.lock
+docker-compose.yml
+README.md
+jsconfig.json
+package.json
+package-lock.json
+pint.json
