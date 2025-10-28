@@ -11,9 +11,14 @@ class ShowClientController extends Controller
 {
     public function __invoke(Client $client)
     {
+        $appointments = $client->appointments()
+            ->where('date', '>', now()->subDay())
+            ->orderBy('date')
+            ->get();
+
         return inertia('Client/Show', [
             'client' => ClientResource::make($client),
-            'appointments' => AppointmentResource::collection($client->appointments),
+            'appointments' => AppointmentResource::collection($appointments),
         ]);
     }
 }

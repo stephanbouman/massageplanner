@@ -4,10 +4,15 @@ import FormInput from "@/Components/Form/FormInput.vue";
 import FormSection from "@/Components/Form/FormSection.vue";
 import FormTextarea from "@/Components/Form/FormTextarea.vue";
 import FormWrapper from "@/Components/Form/FormWrapper.vue";
+import InputLabel from "@/Components/InputLabel.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, Link as InertiaLink, useForm } from "@inertiajs/vue3";
 const props = defineProps({
     client: {
+        type: Object,
+        required: true,
+    },
+    genders: {
         type: Object,
         required: true,
     },
@@ -79,6 +84,21 @@ const form = useForm({
                             v-model="form.last_name"
                             label="Achternaam"
                         />
+                        <div class="col-span-2">
+                            <InputLabel class="mb-1">Geslacht</InputLabel>
+                            <select
+                                class="w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 col-span-2"
+                                id="type"
+                                v-model="form.gender"
+                            >
+                                <option
+                                    v-for="(label, type) in genders"
+                                    :value="type"
+                                >
+                                    {{ label }}
+                                </option>
+                            </select>
+                        </div>
                         <FormInput
                             class="col-span-2 col-start-1"
                             id="birth_date"

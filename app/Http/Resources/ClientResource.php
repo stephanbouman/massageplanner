@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Enums\Gender;
 use App\Models\Client;
+use IFresh\EnumTranslations\EnumTranslatorFacade as EnumTranslator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -27,6 +29,7 @@ class ClientResource extends JsonResource
             'birth_date_friendly' => $this->birth_date?->isoFormat('D MMMM YYYY'),
             'birth_date_formatted' => $this->birth_date?->format('Y-m-d'),
             'gender' => $this->gender,
+            'gender_friendly' => EnumTranslator::translateValue(Gender::class, $this->gender),
             'address' => $this->address,
             'postal_code' => $this->postal_code,
             'city' => $this->city,

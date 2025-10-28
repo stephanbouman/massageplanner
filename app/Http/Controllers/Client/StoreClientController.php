@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Enums\Gender;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class StoreClientController extends Controller
 
         $client = new Client;
         $client->first_name = $request->first_name;
+        $client->gender = $request->enum('gender', Gender::class);
         $client->last_name = $request->last_name;
         $client->phone = $request->phone;
         $client->email = $request->email;

@@ -3,10 +3,11 @@ import FormButtonSection from "@/Components/Form/FormButtonSection.vue";
 import FormInput from "@/Components/Form/FormInput.vue";
 import FormSection from "@/Components/Form/FormSection.vue";
 import FormWrapper from "@/Components/Form/FormWrapper.vue";
+import InputLabel from "@/Components/InputLabel.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head, useForm } from "@inertiajs/vue3";
 defineProps({
-    clients: {
+    genders: {
         type: Object,
         required: true,
     },
@@ -66,6 +67,21 @@ const form = useForm({
                             type="date"
                             label="Geboortedatum"
                         />
+                        <div class="col-span-2">
+                            <InputLabel class="mb-1">Geslacht</InputLabel>
+                            <select
+                                class="w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 col-span-2"
+                                id="type"
+                                v-model="form.gender"
+                            >
+                                <option
+                                    v-for="(label, type) in genders"
+                                    :value="type"
+                                >
+                                    {{ label }}
+                                </option>
+                            </select>
+                        </div>
                         <FormInput
                             class="col-span-2 col-start-1"
                             id="phone"

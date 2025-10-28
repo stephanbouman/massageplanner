@@ -52,7 +52,7 @@ defineProps({
                                 >{{ client.data.birth_date_friendly }}</DataList
                             >
                             <DataList class="col-span-2" term="Geslacht">{{
-                                client.data.gender
+                                client.data.gender_friendly
                             }}</DataList>
                         </DisplaySection>
                         <DisplaySection>
@@ -140,7 +140,9 @@ defineProps({
                                 <div
                                     class="flex col-span justify-between items-center"
                                 >
-                                    <DisplayHeader>Afspraken</DisplayHeader>
+                                    <DisplayHeader
+                                        >Komende afspraken</DisplayHeader
+                                    >
                                     <InertiaLink
                                         :href="
                                             route(

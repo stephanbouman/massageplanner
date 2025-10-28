@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Enums\Gender;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class UpdateClientController extends Controller
         $client->last_name = $request->get('last_name');
         $client->email = $request->get('email');
         $client->phone = $request->get('phone');
+        $client->gender = $request->enum('gender', Gender::class);
         $client->birth_date = $request->get('birth_date');
         $client->gender = $request->get('gender');
         $client->address = $request->get('address');

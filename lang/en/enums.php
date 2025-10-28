@@ -5,4 +5,9 @@ return [
         'sport' => 'Sportmassage',
         'relax' => 'Ontspanningsmassage',
     ],
+    'gender' => [
+        'male' => 'Man',
+        'female' => 'Vrouw',
+        'other' => 'Anders',
+    ],
 ];
