@@ -14,7 +14,7 @@ class EditAppointmentController extends Controller
 {
     public function __invoke(Client $client, Appointment $appointment)
     {
-        return inertia('Appointment/Edit', [
+        return inertia('ClientAppointment/Edit', [
             'client' => ClientResource::make($client),
             'appointment' => AppointmentResource::make($appointment),
             'types' => EnumTranslator::translate(MassageType::class),

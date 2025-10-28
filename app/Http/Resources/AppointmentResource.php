@@ -18,9 +18,12 @@ class AppointmentResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $clientName = sprintf('%s %s', $this->client->first_name, $this->client->last_name);
+
         return [
             'id' => $this->id,
             'client_id' => $this->client_id,
+            'client_name' => $clientName,
             'date' => $this->date,
             'date_friendly' => $this->date->isoFormat('dddd D MMMM  H:mm'),
             'date_formatted' => $this->date?->format('Y-m-d H:i'),

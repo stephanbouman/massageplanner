@@ -12,7 +12,7 @@ class ShowAppointmentController extends Controller
 {
     public function __invoke(Client $client, Appointment $appointment)
     {
-        return inertia('Appointment/Show', [
+        return inertia('ClientAppointment/Show', [
             'client' => ClientResource::make($client),
             'appointment' => AppointmentResource::make($appointment),
         ]);

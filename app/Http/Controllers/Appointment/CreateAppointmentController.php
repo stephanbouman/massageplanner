@@ -11,7 +11,7 @@ class CreateAppointmentController
 {
     public function __invoke(Client $client)
     {
-        return inertia('Appointment/Create', [
+        return inertia('ClientAppointment/Create', [
             'client' => ClientResource::make($client),
             'types' => EnumTranslator::translate(MassageType::class),
         ]);

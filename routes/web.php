@@ -11,6 +11,7 @@ use App\Http\Controllers\Client\ListClientController;
 use App\Http\Controllers\Client\ShowClientController;
 use App\Http\Controllers\Client\StoreClientController;
 use App\Http\Controllers\Client\UpdateClientController;
+use App\Http\Controllers\ListAppointmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/{client}/appointment/{appointment}', ShowAppointmentController::class)->name('appointment.show');
     Route::get('/clients/{client}/appointment/{appointment}/edit', EditAppointmentController::class)->name('appointment.edit');
     Route::patch('/clients/{client}/appointment/{appointment}/edit', UpdateAppointmentController::class)->name('appointment.update');
+
+    Route::get('/appointments', ListAppointmentController::class)->name('appointment.index');
 
 });
 
