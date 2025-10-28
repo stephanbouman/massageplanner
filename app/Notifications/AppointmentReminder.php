@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\Appointment;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -17,9 +16,7 @@ class AppointmentReminder extends Notification
      */
     public function __construct(
         public Appointment $appointment,
-    )
-    {
-    }
+    ) {}
 
     /**
      * Get the notification's delivery channels.

@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\Appointment;
+use App\Notifications\AppointmentReminder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
-use App\Notifications\AppointmentReminder;
 
 class SendReminderCommand extends Command
 {
@@ -21,11 +21,11 @@ class SendReminderCommand extends Command
      */
     public function handle()
     {
-        Appointment::where('date','>',today()->addDay()->startOfDay())
-            ->where('date','<',today()->addDay()->endOfDay())
+        Appointment::where('date', '>', today()->addDay()->startOfDay())
+            ->where('date', '<', today()->addDay()->endOfDay())
             ->get()
             ->each(function (Appointment $appointment) {
-                if (filled($appointment->client->email) ){
+                if (filled($appointment->client->email)) {
                     Log::info(sprintf('Sending reminder for %s', $appointment->client->email));
 
                     $appointment->client->notify(new AppointmentReminder($appointment));
