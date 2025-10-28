@@ -18,6 +18,11 @@ defineProps({
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
                     Afspraken
                 </h2>
+                <InertiaLink
+                    :href="route('appointment.index', {showAll: true})"
+                    class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600 text-pink-50 font-bold rounded-lg shadow-sm px-2 py-1"
+                    >alles tonen</InertiaLink
+                >
             </div>
         </template>
 
