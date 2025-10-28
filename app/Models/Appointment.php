@@ -14,6 +14,11 @@ class Appointment extends Model
         'expected_duration',
         'additional_info',
     ];
+
+    protected $casts = [
+      'date' => 'datetime',
+    ];
+
     public function client() : BelongsTo
     {
         return $this->belongsTo(Client::class);

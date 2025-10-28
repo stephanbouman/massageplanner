@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ClientResource;
+use App\Http\Resources\AppointmentResource;
 
 class ShowClientController extends Controller
 {
@@ -12,6 +13,7 @@ class ShowClientController extends Controller
     {
         return inertia("Client/Show",[
             'client' => ClientResource::make($client),
+            'appointments' => AppointmentResource::collection($client->appointments),
         ]);
     }
 }

@@ -10,6 +10,8 @@ use App\Http\Controllers\Client\EditClientController;
 use App\Http\Controllers\Client\StoreClientController;
 use App\Http\Controllers\Client\CreateClientController;
 use App\Http\Controllers\Client\UpdateClientController;
+use App\Http\Controllers\Appointment\StoreAppointmentController;
+use App\Http\Controllers\Appointment\CreateAppointmentController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -35,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/{client}', ShowClientController::class)->name('clients.show');
     Route::get('/clients/{client}/edit', EditClientController::class)->name('clients.edit');
     Route::patch('/clients/{client}/edit', UpdateClientController::class)->name('clients.update');
+
+    Route::get('/clients/{client}/appointment/create', CreateAppointmentController::class)->name('appointment.create');
+    Route::post('/clients/{client}/appointment', StoreAppointmentController::class)->name('appointment.store');
 });
 
 require __DIR__.'/auth.php';

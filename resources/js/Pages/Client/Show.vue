@@ -8,7 +8,11 @@ defineProps({
   client: {
     type: Object,
     required: true,
-  }
+  },
+  appointments: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
@@ -74,12 +78,13 @@ defineProps({
             <div class="col-span-full px-4 md:px-6 grid md:gap-5 relative py-6">
               <div class="flex col-span justify-between items-center">
                 <DisplayHeader>Afspraken</DisplayHeader>
-                <InertiaLink class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600  text-pink-50 font-bold rounded-sm shadow-sm px-1 py-0.5 text-sm">nieuw</InertiaLink>
+                <InertiaLink :href="route('appointment.create', client.data )" class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600  text-pink-50 font-bold rounded-sm shadow-sm px-1 py-0.5 text-sm">nieuw</InertiaLink>
               </div>
-              <div class="col-span-full rounded-lg divide-y divide-gray-200 border border-gray-200">
-                <div class="px-2 py-3 text-sm"><span class="font-bold block">Sportmassage</span> 7 december 2025 13:00 uur</div>
-                <div class="px-2 py-3 text-sm"><span class="font-bold block">Sportmassage</span> 14 december 2025 13:00 uur</div>
-                <div class="px-2 py-3 text-sm"><span class="font-bold block">Sportmassage</span> 21 december 2025 13:00 uur</div>
+              <div class=" rounded-lg divide-y divide-gray-200 border border-gray-200 text-sm">
+                <div v-for="appointment in appointments.data" class="px-2 py-3 ">
+                  <span class="font-bold block">{{  appointment.type }}</span> {{ appointment.date_friendly}} uur
+                </div>
+                <div v-if="appointments.data.length === 0" class="py-3 px-2">Geen afspraken gemaakt</div>
               </div>
             </div>
           </aside>
