@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Appointment\CreateAppointmentController;
+use App\Http\Controllers\Appointment\EditAppointmentController;
 use App\Http\Controllers\Appointment\ShowAppointmentController;
 use App\Http\Controllers\Appointment\StoreAppointmentController;
+use App\Http\Controllers\Appointment\UpdateAppointmentController;
 use App\Http\Controllers\Client\CreateClientController;
 use App\Http\Controllers\Client\EditClientController;
 use App\Http\Controllers\Client\ListClientController;
@@ -43,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/clients/{client}/appointment', StoreAppointmentController::class)->name('appointment.store');
 
     Route::get('/clients/{client}/appointment/{appointment}', ShowAppointmentController::class)->name('appointment.show');
+    Route::get('/clients/{client}/appointment/{appointment}/edit', EditAppointmentController::class)->name('appointment.edit');
+    Route::patch('/clients/{client}/appointment/{appointment}/edit', UpdateAppointmentController::class)->name('appointment.update');
 
 });
 

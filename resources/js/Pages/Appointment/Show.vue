@@ -27,7 +27,16 @@ defineProps({
                         client.data.name
                     }}</InertiaLink>
                 </h2>
-                <!--        <InertiaLink :href="route('clients.edit', client.data)" class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600  text-pink-50 font-bold rounded-lg shadow-sm px-2 py-1">bewerken</InertiaLink>-->
+                <InertiaLink
+                    :href="
+                        route('appointment.edit', {
+                            client: client.data,
+                            appointment: appointment.data,
+                        })
+                    "
+                    class="bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-500 hover:to-pink-600 text-pink-50 font-bold rounded-lg shadow-sm px-2 py-1"
+                    >bewerken</InertiaLink
+                >
             </div>
         </template>
 
@@ -40,7 +49,7 @@ defineProps({
                             client.data.name
                         }}</DataList>
                         <DataList class="col-span-2" term="Geslacht">{{
-                            client.data.gender
+                            client.data.gender_friendly
                         }}</DataList>
                         <DataList class="col-span-2" term="Geboortedatum">{{
                             client.data.birth_date_friendly

@@ -23,6 +23,7 @@ class AppointmentResource extends JsonResource
             'client_id' => $this->client_id,
             'date' => $this->date,
             'date_friendly' => $this->date->isoFormat('dddd D MMMM  H:mm'),
+            'date_formatted' => $this->date?->format('Y-m-d H:i'),
             'type' => $this->type,
             'type_friendly' => EnumTranslator::translateValue(MassageType::class, $this->type),
             'duration' => $this->expected_duration,
