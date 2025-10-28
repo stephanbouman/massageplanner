@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Appointment;
 
-use Carbon\Carbon;
-use App\Models\Client;
-use App\Models\Appointment;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
+use App\Models\Client;
+use Illuminate\Http\Request;
 
 class StoreAppointmentController extends Controller
 {
@@ -15,12 +14,16 @@ class StoreAppointmentController extends Controller
 
         $request->validate([
             'date' => ['required', 'date'],
-            'type' => ['required','string'],
+            'type' => ['required', 'string'],
+            'duration' => ['nullable', 'integer'],
+            'additional_info' => ['nullable', 'string'],
         ]);
 
-        $appointment = new Appointment();
+        $appointment = new Appointment;
         $appointment->date = $request->date('date');
         $appointment->type = $request->type;
+        $appointment->expected_duration = $request->duration;
+        $appointment->additional_info = $request->additional_info;
         $client->appointments()->save($appointment);
 
         return to_route('clients.show', $client);

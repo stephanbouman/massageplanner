@@ -1,17 +1,18 @@
 <?php
 
-use Inertia\Inertia;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Appointment\CreateAppointmentController;
+use App\Http\Controllers\Appointment\ShowAppointmentController;
+use App\Http\Controllers\Appointment\StoreAppointmentController;
+use App\Http\Controllers\Client\CreateClientController;
+use App\Http\Controllers\Client\EditClientController;
 use App\Http\Controllers\Client\ListClientController;
 use App\Http\Controllers\Client\ShowClientController;
-use App\Http\Controllers\Client\EditClientController;
 use App\Http\Controllers\Client\StoreClientController;
-use App\Http\Controllers\Client\CreateClientController;
 use App\Http\Controllers\Client\UpdateClientController;
-use App\Http\Controllers\Appointment\StoreAppointmentController;
-use App\Http\Controllers\Appointment\CreateAppointmentController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/clients/{client}/appointment/create', CreateAppointmentController::class)->name('appointment.create');
     Route::post('/clients/{client}/appointment', StoreAppointmentController::class)->name('appointment.store');
+
+    Route::get('/clients/{client}/appointment/{appointment}', ShowAppointmentController::class)->name('appointment.show');
+
 });
 
 require __DIR__.'/auth.php';

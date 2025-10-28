@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ClientOverviewResource;
+use App\Models\Client;
 
 class ListClientController extends Controller
 {

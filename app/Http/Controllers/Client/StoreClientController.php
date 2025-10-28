@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class StoreClientController extends Controller
 {
@@ -18,7 +18,7 @@ class StoreClientController extends Controller
             'birth_date' => ['nullable', 'date'],
         ]);
 
-        $client = new Client();
+        $client = new Client;
         $client->first_name = $request->first_name;
         $client->last_name = $request->last_name;
         $client->phone = $request->phone;

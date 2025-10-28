@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UpdateClientController extends Controller
 {

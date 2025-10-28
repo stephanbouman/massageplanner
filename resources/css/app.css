@@ -29,7 +29,6 @@
     }
 }
 
-
 .card {
     @apply bg-white rounded-2xl border;
 }

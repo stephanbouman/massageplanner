@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Enums\MassageType;
 use App\Models\Appointment;
+use IFresh\EnumTranslations\EnumTranslatorFacade as EnumTranslator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,6 +24,8 @@ class AppointmentResource extends JsonResource
             'date' => $this->date,
             'date_friendly' => $this->date->isoFormat('dddd D MMMM  H:mm'),
             'type' => $this->type,
+            'type_friendly' => EnumTranslator::translateValue(MassageType::class, $this->type),
+            'duration' => $this->expected_duration,
             'expected_duration' => $this->expected_duration,
             'additional_info' => $this->additional_info,
             'created_at' => $this->created_at,
