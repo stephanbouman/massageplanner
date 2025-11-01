@@ -71,9 +71,14 @@ const showNewReportForm = ref(false);
                 </form>
             </div>
 
+            <div class="px-4 md:px-16 py-6" v-if="comments.length === 0">
+                Er zijn geen rapportages toegevoegd aan deze client
+            </div>
+
             <CommentShow
                 :comment="comment"
                 :client
+                v-if="comments.length > 0"
                 v-for="comment in comments"
             />
         </div>
