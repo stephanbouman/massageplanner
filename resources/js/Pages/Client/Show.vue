@@ -1,4 +1,5 @@
 <script setup>
+import CommentList from "@/Components/Comment/CommentList.vue";
 import DataList from "@/Components/Show/DataList.vue";
 import DisplayHeader from "@/Components/Show/DisplayHeader.vue";
 import DisplaySection from "@/Components/Show/DisplaySection.vue";
@@ -12,6 +13,10 @@ defineProps({
         required: true,
     },
     appointments: {
+        type: Object,
+        required: true,
+    },
+    comments: {
         type: Object,
         required: true,
     },
@@ -210,6 +215,13 @@ defineProps({
                             </div>
                         </aside>
                     </div>
+                </div>
+                <div class="pt-4 grid-cols-7 grid">
+                    <CommentList
+                        class="col-span-5"
+                        :comments="comments.data"
+                        :client
+                    />
                 </div>
             </div>
         </div>
