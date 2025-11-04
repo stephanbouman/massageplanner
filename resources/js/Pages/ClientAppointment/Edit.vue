@@ -74,7 +74,7 @@ const form = useForm({
                             label="Verwachtte duur (min)"
                         />
                         <div class="col-span-2">
-                            <InputLabel class="mb-1">Massagetype</InputLabel>
+                            <InputLabel class="mb-1">Behandeling</InputLabel>
                             <select
                                 class="w-full rounded-md border-gray-300 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 col-span-2"
                                 id="type"
