@@ -77,6 +77,7 @@ const showNewReportForm = ref(false);
 
             <CommentShow
                 :comment="comment"
+                :key="comment.id"
                 :client
                 v-if="comments.length > 0"
                 v-for="comment in comments"
